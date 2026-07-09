@@ -10,6 +10,8 @@ class Person:
 
 def create_person_list(people: list) -> list:
 
+    person_list = [Person(person["name"], person["age"]) for person in people]
+
     for person in people:
         current = Person.people[person["name"]]
 
@@ -19,4 +21,4 @@ def create_person_list(people: list) -> list:
         if person.get("husband") is not None:
             current.husband = Person.people[person["husband"]]
 
-    return [Person(person["name"], person["age"]) for person in people]
+    return person_list
